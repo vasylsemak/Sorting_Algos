@@ -1,0 +1,11 @@
+{
+  "name": "sorting_algos",
+  "version": "1.0.0",
+  "description": "implement sorting algos in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vasyl Semak",
+  "license": "ISC"
+}

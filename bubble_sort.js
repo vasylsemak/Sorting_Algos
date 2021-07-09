@@ -1,7 +1,7 @@
-const myArr = [10, 70, 50, 90, 30]
-// const myArr = [1, 3, 5, 9, 7]
-// const myArr = [11, 33, 55, 77, 99]
-// const myArr = Array(1000000).fill(21)
+// const myArr = [9, 7, 5, 3, 1]
+// const myArr = [99, 11, 77, 55, 22, 44]
+const myArr = [263, 173, 57, 475, 86, 5753, 90, 439, 83, 52, 42, 45, 324]
+// const myArr = Array(100000).fill(21)
 /* ----------------------------------------------------------------- */
 
 
@@ -10,38 +10,34 @@ const bubbleSort = anArr => {
   let last = anArr.length -1
 
   for(let j = 0; j < anArr.length - 1; j++) {
-    // no need to shift if sorted
-    if(anArr[j] > anArr[j + 1]) {
-      let first = 0
+    let first = 0
 
-      while(first < last) {
-        count++
+    while(first < last) {
+      count++
 
-        if(anArr[first] > anArr[first + 1]) {
-          const tempElem = anArr[first]
-          anArr[first] = anArr[first + 1]
-          anArr[first + 1] = tempElem
-          console.log('elements shifted ==> ', anArr)
-        }
-        first++;
+      if(anArr[first] > anArr[first + 1]) {
+        const tempElem = anArr[first]
+        anArr[first] = anArr[first + 1]
+        anArr[first + 1] = tempElem
       }
-      // don't check last sorted elem after full iteration
-      last--;
-      console.log('End Pointer -> ', last)
+      first++;
     }
-
+    // don't check last sorted elem after full iteration
+    last--;
   }
+
   console.log('Total Iterations : ', count)
   return anArr;
 }
 
 
+
 /* ------         F-N CALL              --------------------- */
-console.log('Initial Arr: ', myArr)
-console.log('                                                       ')
-const result = bubbleSort(myArr)
-console.log('                                                       ')
-console.log('SORTED: ', result)
+// console.log('                                                       ')
+// console.log('Initial Arr: ', myArr)
+// const result = bubbleSort(myArr)
+// console.log('SORTED: ', result)
+// console.log('                                                       ')
 
 
 
@@ -50,7 +46,9 @@ function getPerfomance(func, arr) {
   const start = Date.now()
   const result = func(arr)
   const end = Date.now()
-  console.log('PERFOMANCE === ', end - start)
+  let perfomance = (end - start) / 100
+  console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
   return result
 }
 
+getPerfomance(bubbleSort, myArr)

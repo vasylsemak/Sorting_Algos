@@ -1,6 +1,6 @@
 // const myArr = [9, 7, 5, 3, 1]
 // const myArr = [99, 11, 77, 55, 22, 44]
-const myArr = [263, 173, 57, 475, 86, 5753, 90, 439, 83, 52, 42, 45, 324]
+const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
 // const myArr = Array(100000).fill(21)
 /* ----------------------------------------------------------------- */
 
@@ -33,22 +33,24 @@ const bubbleSort = anArr => {
 
 
 /* ------         F-N CALL              --------------------- */
-// console.log('                                                       ')
-// console.log('Initial Arr: ', myArr)
-// const result = bubbleSort(myArr)
-// console.log('SORTED: ', result)
-// console.log('                                                       ')
+console.log('                                                       ')
+console.log('Initial Arr: ', myArr)
+console.log('                                                       ')
+const result = bubbleSort(myArr)
+console.log('                                                       ')
+console.log('SORTED: ', result)
+console.log('                                                       ')
 
 
 
 /* ------        Perfomance F-N              --------------------- */
-function getPerfomance(func, arr) {
-  const start = Date.now()
-  const result = func(arr)
-  const end = Date.now()
-  let perfomance = (end - start) / 100
-  console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
-  return result
-}
+// function getPerfomance(func, arr) {
+//   const start = Date.now()
+//   const result = func(arr)
+//   const end = Date.now()
+//   let perfomance = (end - start) / 100
+//   console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
+//   return result
+// }
 
-getPerfomance(bubbleSort, myArr)
+// getPerfomance(bubbleSort, myArr)

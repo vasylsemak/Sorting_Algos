@@ -1,5 +1,11 @@
+// const myArr = [9, 7, 5, 3, 1]
+// const myArr = [99, 11, 77, 55, 22, 44]
+const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
+// const myArr = Array(10000).fill(21)
+/* ----------------------------------------------------------------- */
+
+
 const chalk = require('chalk')
-const myArr = [4, 9, 3, 7, 0, 12, 2, 5]
 
 function quickSort(arr) {
   // base case for recursion
@@ -24,5 +30,22 @@ function quickSort(arr) {
 
 console.log(
   chalk.yellow('sorted -> '),
-  chalk.blue(quickSort(myArr))
+  chalk.red(quickSort(myArr))
 )
+
+
+
+// /* ------        Perfomance F-N              --------------------- */
+// function getPerfomance(func, arr) {
+//   const start = Date.now()
+//   const result = func(arr)
+//   const end = Date.now()
+//   let perfomance = (end - start) / 100
+//   console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
+//   return result
+// }
+
+// console.log(
+//   chalk.yellow('sorted -> '),
+//   chalk.red(getPerfomance(quickSort, myArr))
+// )

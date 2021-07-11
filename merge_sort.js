@@ -1,7 +1,11 @@
 // const myArr = [9, 7, 5, 3, 1]
 // const myArr = [99, 11, 77, 55, 22, 44]
-const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
+// const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
 // const myArr = Array(10000).fill(21)
+const myArr = []
+for (let i = 4000; i >= 0; i--) {
+  myArr.push(i)
+}
 /* ----------------------------------------------------------------- */
 
 
@@ -23,8 +27,8 @@ const sortAndMerge = (arr1, arr2) => {
     if(arr1[0] > arr2[0])  merged.push(arr2.shift())
   }
 
-  const leftArr = arr1.length ? arr1 : arr2
-  return [...merged, ...leftArr]
+  const restArr = arr1.length ? arr1 : arr2
+  return [...merged, ...restArr]
 }
 
 
@@ -48,22 +52,24 @@ function mergeSortAlgo(arr) {
 
 
 
-// console.log('Input: ', myArr)
-// console.log('Sorted: ', mergeSortAlgo(myArr))
-
-
-
 /* ------        Perfomance F-N              --------------------- */
 function getPerfomance(func, arr) {
   const start = Date.now()
   const result = func(arr)
   const end = Date.now()
-  let perfomance = (end - start) / 100
+  let perfomance = (end - start) / 1000
   console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
   return result
 }
 
-console.log(
-  chalk.yellow('sorted -> '),
-  chalk.red(getPerfomance(mergeSortAlgo, myArr))
-)
+
+// console.log(
+//   chalk.red('Before SWAP:  '),
+//   chalk.blue(myArr)
+// )
+// console.log(
+  chalk.red('After SWAP:  '),
+  chalk.blue(getPerfomance(mergeSortAlgo, myArr))
+// )
+console.log('\n')
+

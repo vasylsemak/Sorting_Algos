@@ -1,39 +1,26 @@
 const chalk = require('chalk')
-let calls = 0
-
-const myArr = [90, 70, 50, 10, 30]
-// const myArr = [99, 77, 55, 33, 11]
+// const myArr = [90, 70, 50, 10, 30, 666]
+// const myArr = [9, 7, 5, 3]
 // const myArr = [20, 40, 60, 80, 100]
 
-// const myArr = []
-// for (let i = 15; i >= 0; i--) {
-//   myArr.push(i)
-// }
-console.log(chalk.blue('--------------------------------------------------------------------------------------------------------------'))
-console.log('before swap -> ', myArr)
-console.log('\n')
+const myArr = []
+for (let i = 60; i >= 0; i--) {
+  myArr.push(i)
+}
 
 
-/* -------------------------------------------------------------------- */
+
+/* ----------        partitionHoare F-N              -------------------------- */
 function partitionHoare(arr, start, end) {
-  let pivotIdx = Math.floor((end - start) / 2)
+  let pivotIdx = Math.floor((start + end) / 2)
   let pivot = arr[pivotIdx]
-  console.log('pivot: ', pivot)
-  console.log('ponters -> ' + chalk.yellow(start) + ' and ' + chalk.yellow(end))
-  console.log('\n')
 
   while(start < end) {
     while(arr[start] < pivot) {
       start++
-      calls++
-      console.log('start:// ', start)
-      console.log('\n')
     }
     while(arr[end] > pivot) {
       end--
-      calls++
-      console.log('end:// ', end)
-      console.log('\n')
     }
 
     if(arr[start] > arr[end]) {
@@ -44,17 +31,42 @@ function partitionHoare(arr, start, end) {
 
       start++
       end--
-
-      console.log('partSwap', arr)
-      console.log('start in IF: ', start)
-      console.log('end in IF: ', end)
-      console.log('\n')
     }
-    calls++
   }
+
+  return start
+}
+
+
+/* ----------        quickSortV2 F-N              -------------------------- */
+function quickSortV2(arr, left = 0, right = arr.length -1) {
+  if(left >= right) return
+  const pivotIdx = partitionHoare(arr, left, right)
+
+  if(left < pivotIdx)  quickSortV2(arr, 0, pivotIdx)
+  if(right > pivotIdx)  quickSortV2(arr, pivotIdx +1, right)
 
   return arr
 }
 
-partitionHoare(myArr, 0, myArr.length -1)
-console.log('Calls count ==> ', calls)
+
+/* ----------        Perfomance F-N              -------------------------- */
+function getPerfomance(func, arr) {
+  const start = Date.now()
+  const result = func(arr)
+  const end = Date.now()
+  let perfomance = (end - start) / 1000
+  console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
+  return result
+}
+
+
+console.log(
+  chalk.red('Before SWAP:  '),
+  chalk.blue(myArr)
+)
+console.log(
+  chalk.red('After SWAP:  '),
+  chalk.blue(getPerfomance(quickSortV2, myArr))
+)
+console.log('\n')

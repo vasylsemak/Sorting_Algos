@@ -1,7 +1,12 @@
+const chalk = require('chalk')
 // const myArr = [9, 7, 5, 3, 1]
 // const myArr = [99, 11, 77, 55, 22, 44]
-const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
+// const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
 // const myArr = Array(100000).fill(21)
+const myArr = []
+for (let i = 4000; i >= 0; i--) {
+  myArr.push(i)
+}
 /* ----------------------------------------------------------------- */
 
 
@@ -32,25 +37,33 @@ const bubbleSort = anArr => {
 
 
 
-/* ------         F-N CALL              --------------------- */
-console.log('                                                       ')
-console.log('Initial Arr: ', myArr)
-console.log('                                                       ')
-const result = bubbleSort(myArr)
-console.log('                                                       ')
-console.log('SORTED: ', result)
-console.log('                                                       ')
-
-
-
 /* ------        Perfomance F-N              --------------------- */
-// function getPerfomance(func, arr) {
-//   const start = Date.now()
-//   const result = func(arr)
-//   const end = Date.now()
-//   let perfomance = (end - start) / 100
-//   console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
-//   return result
-// }
+function getPerfomance(func, arr) {
+  const start = Date.now()
+  const result = func(arr)
+  const end = Date.now()
+  let perfomance = (end - start) / 1000
+  console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
+  return result
+}
 
-// getPerfomance(bubbleSort, myArr)
+// console.log(
+//   chalk.red('Before SWAP:  '),
+//   chalk.blue(myArr)
+// )
+// console.log(
+  chalk.red('After SWAP:  '),
+  chalk.blue(getPerfomance(bubbleSort, myArr))
+// )
+console.log('\n')
+
+
+
+/* ------         F-N CALL              --------------------- */
+// console.log('                                                       ')
+// console.log('Initial Arr: ', myArr)
+// console.log('                                                       ')
+// const result = bubbleSort(myArr)
+// console.log('                                                       ')
+// console.log('SORTED: ', result)
+// console.log('                                                       ')

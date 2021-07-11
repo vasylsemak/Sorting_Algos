@@ -4,7 +4,7 @@ const chalk = require('chalk')
 // const myArr = [20, 40, 60, 80, 100]
 
 const myArr = []
-for (let i = 60; i >= 0; i--) {
+for (let i = 120; i >= 0; i-=10) {
   myArr.push(i)
 }
 
@@ -12,61 +12,72 @@ for (let i = 60; i >= 0; i--) {
 
 /* ----------        partitionHoare F-N              -------------------------- */
 function partitionHoare(arr, start, end) {
-  let pivotIdx = Math.floor((start + end) / 2)
-  let pivot = arr[pivotIdx]
+  let pivot = Math.floor((start + end) / 2)
 
-  while(start < end) {
-    while(arr[start] < pivot) {
+  // while left pointer NOT greater than right
+  while(start <= end) {
+    console.log("Arr: ", arr)
+    console.log("Pivot: ", pivot)
+    console.log('\n')
+
+    // if left side num less than Pivot - move left pointer
+    while(arr[start] < arr[pivot]) {
       start++
     }
-    while(arr[end] > pivot) {
+    // if right side num greater than Pivot - move right pointer
+    while(arr[end] > arr[pivot]) {
       end--
     }
 
-    if(arr[start] > arr[end]) {
-      // swap last and first nums
+    // if while loop got here -- left num > pivot and right num < pivot
+    if(start <= end) {
+      // swap greater and less than Pivot nums
       let last = arr[end]
       arr[end] = arr[start]
       arr[start] = last
 
+      // move pointers
       start++
       end--
     }
   }
 
+  // return pivot
   return start
 }
 
-
-/* ----------        quickSortV2 F-N              -------------------------- */
-function quickSortV2(arr, left = 0, right = arr.length -1) {
-  if(left >= right) return
-  const pivotIdx = partitionHoare(arr, left, right)
-
-  if(left < pivotIdx)  quickSortV2(arr, 0, pivotIdx)
-  if(right > pivotIdx)  quickSortV2(arr, pivotIdx +1, right)
-
-  return arr
-}
+partitionHoare(myArr, 0, myArr.length -1)
 
 
-/* ----------        Perfomance F-N              -------------------------- */
-function getPerfomance(func, arr) {
-  const start = Date.now()
-  const result = func(arr)
-  const end = Date.now()
-  let perfomance = (end - start) / 1000
-  console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
-  return result
-}
+// /* ----------        quickSortV2 F-N              -------------------------- */
+// function quickSortV2(arr, left = 0, right = arr.length -1) {
+//   if(left >= right) return
+//   const pivotIdx = partitionHoare(arr, left, right)
+
+//   if(left < pivotIdx)  quickSortV2(arr, 0, pivotIdx)
+//   if(right > pivotIdx)  quickSortV2(arr, pivotIdx +1, right)
+
+//   return arr
+// }
 
 
-console.log(
-  chalk.red('Before SWAP:  '),
-  chalk.blue(myArr)
-)
-console.log(
-  chalk.red('After SWAP:  '),
-  chalk.blue(getPerfomance(quickSortV2, myArr))
-)
-console.log('\n')
+// /* ----------        Perfomance F-N              -------------------------- */
+// function getPerfomance(func, arr) {
+//   const start = Date.now()
+//   const result = func(arr)
+//   const end = Date.now()
+//   let perfomance = (end - start) / 1000
+//   console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
+//   return result
+// }
+
+
+// console.log(
+//   chalk.red('Before SWAP:  '),
+//   chalk.blue(myArr)
+// )
+// console.log(
+//   chalk.red('After SWAP:  '),
+//   chalk.blue(getPerfomance(quickSortV2, myArr))
+// )
+// console.log('\n')

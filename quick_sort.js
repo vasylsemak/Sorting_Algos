@@ -1,9 +1,8 @@
-const chalk = require('chalk')
 // const myArr = [9, 7, 5, 3, 1]
 // const myArr = [99, 11, 77, 55, 22, 44]
 // const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
 const myArr = []
-for (let i = 4000; i >= 0; i--) {
+for (let i = 8000; i >= 0; i--) {
   myArr.push(i)
 }
 
@@ -42,12 +41,5 @@ function getPerfomance(func, arr) {
   return result
 }
 
-// console.log(
-//   chalk.red('Before SWAP:  '),
-//   chalk.blue(myArr)
-// )
-// console.log(
-  chalk.red('After SWAP:  '),
-  chalk.blue(getPerfomance(quickSort, myArr))
-// )
+getPerfomance(quickSort, myArr)
 console.log('\n')

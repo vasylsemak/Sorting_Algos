@@ -1,10 +1,9 @@
-const chalk = require('chalk')
 // const myArr = [90, 70, 50, 10, 30, 666]
 // const myArr = [9, 7, 5, 3]
 // const myArr = [20, 40, 60, 80, 100]
 
 const myArr = []
-for (let i = 120; i >= 0; i-=10) {
+for (let i = 8000; i >= 0; i--) {
   myArr.push(i)
 }
 
@@ -16,9 +15,9 @@ function partitionHoare(arr, start, end) {
 
   // while left pointer NOT greater than right
   while(start <= end) {
-    console.log("Arr: ", arr)
-    console.log("Pivot: ", pivot)
-    console.log('\n')
+    // console.log("Arr: ", arr)
+    // console.log("Pivot: ", pivot)
+    // console.log('\n')
 
     // if left side num less than Pivot - move left pointer
     while(arr[start] < arr[pivot]) {
@@ -46,38 +45,29 @@ function partitionHoare(arr, start, end) {
   return start
 }
 
-partitionHoare(myArr, 0, myArr.length -1)
 
 
 // /* ----------        quickSortV2 F-N              -------------------------- */
-// function quickSortV2(arr, left = 0, right = arr.length -1) {
-//   if(left >= right) return
-//   const pivotIdx = partitionHoare(arr, left, right)
+function quickSortV2(arr, left = 0, right = arr.length -1) {
+  const pivotIdx = partitionHoare(arr, left, right)
 
-//   if(left < pivotIdx)  quickSortV2(arr, 0, pivotIdx)
-//   if(right > pivotIdx)  quickSortV2(arr, pivotIdx +1, right)
+  if(left < pivotIdx -1)  quickSortV2(arr, left, pivotIdx -1)
+  if(right > pivotIdx)  quickSortV2(arr, pivotIdx, right)
 
-//   return arr
-// }
+  return arr
+}
+
 
 
 // /* ----------        Perfomance F-N              -------------------------- */
-// function getPerfomance(func, arr) {
-//   const start = Date.now()
-//   const result = func(arr)
-//   const end = Date.now()
-//   let perfomance = (end - start) / 1000
-//   console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
-//   return result
-// }
+function getPerfomance(func, arr) {
+  const start = Date.now()
+  const result = func(arr)
+  const end = Date.now()
+  let perfomance = (end - start) / 1000
+  console.log('PERFOMANCE ===> ', perfomance, ' seconds.')
+  return result
+}
 
-
-// console.log(
-//   chalk.red('Before SWAP:  '),
-//   chalk.blue(myArr)
-// )
-// console.log(
-//   chalk.red('After SWAP:  '),
-//   chalk.blue(getPerfomance(quickSortV2, myArr))
-// )
-// console.log('\n')
+getPerfomance(quickSortV2, myArr)
+console.log('\n')

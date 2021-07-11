@@ -1,8 +1,8 @@
 const chalk = require('chalk')
 // const myArr = [9, 7, 5, 3, 1]
 // const myArr = [99, 11, 77, 55, 22, 44]
-const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
-// const myArr = Array(10000).fill(21)
+// const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
+const myArr = Array(1000).fill(21)
 
 
 /* ---------------    time O(nlogn) space O(1)     ------------------------ */
@@ -31,15 +31,14 @@ function partition(arr, startIdx, endIdx) {
 
 
 function quickSort(arr, start = 0, end = arr.length) {
-  if(start < end) {
+  if(start >= end) return arr
+  else {
     let pivotIdx = partition(arr, start, end)
 
     // edge case to avoid extra iterations
-    if((pivotIdx+1) < (end - 1)) quickSort(arr, pivotIdx + 1, end)
+    if((pivotIdx + 1) < (end - 1)) quickSort(arr, pivotIdx + 1, end)
     quickSort(arr, 0, pivotIdx)
   }
-
-  return arr
 }
 
 

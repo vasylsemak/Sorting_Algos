@@ -2,12 +2,12 @@
 // const myArr = [99, 77, 55, 33, 11]
 // const myArr = [20, 40, 60, 80, 100]
 const myArr = []
-for (let i = 8000; i >= 0; i--) {
-  myArr.push(i)
+for (let i = 60000; i >= 0; i--) {
+  myArr.push(Math.ceil(Math.random() * 60000))
 }
 
 
-
+let count = 0
 function insertionSort(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     let j = i + 1
@@ -15,6 +15,7 @@ function insertionSort(arr) {
     // console.log('keyElem: ', keyElem)
 
     while (j >= 1) {
+      count++
 
       if (arr[j - 1] > keyElem) {
         arr[j] = arr[j - 1]
@@ -26,6 +27,7 @@ function insertionSort(arr) {
     // console.log('While loop exit -> ', arr)
   }
 
+  console.log('Total Iterations : ', count)
   return arr
 }
 
@@ -41,5 +43,9 @@ function getPerfomance(func, arr) {
   return result
 }
 
-getPerfomance(insertionSort, myArr)
+// getPerfomance(insertionSort, myArr)
+console.log(
+  'insertionSort sorted ---> ',
+  getPerfomance(insertionSort, myArr)
+)
 console.log('\n')

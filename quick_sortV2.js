@@ -59,7 +59,7 @@ function quickSortV2(arr, left = 0, right = arr.length -1) {
 
 
 
-// /* ----------        Perfomance F-N              -------------------------- */
+/* ----------        Perfomance F-N              -------------------------- */
 function getPerfomance(func, arr) {
   const start = Date.now()
   const result = func(arr)

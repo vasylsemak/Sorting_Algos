@@ -15,7 +15,7 @@ const bubbleSort = anArr => {
   let count = 0
   let last = anArr.length -1
 
-  for(let j = 0; j < anArr.length -1; j++) {
+  for(let j = 0; j < last; j++) {
     let first = 0
 
     while(first < last) {

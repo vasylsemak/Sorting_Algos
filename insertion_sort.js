@@ -7,31 +7,22 @@ for (let i = 60000; i >= 0; i--) {
 }
 
 
-let count = 0
 function insertionSort(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     let j = i + 1
-    let keyElem = arr[j]
-    // console.log('keyElem: ', keyElem)
 
-    while (j >= 1) {
-      count++
+    while (j >= 1 && (arr[j -1] > arr[j])) {
+      let keyElem = arr[j]
 
-      if (arr[j - 1] > keyElem) {
-        arr[j] = arr[j - 1]
-        arr[j - 1] = keyElem
-        j--
-      }
-      else break
+      arr[j] = arr[j - 1]
+      arr[j - 1] = keyElem
+      j--
     }
-    // console.log('While loop exit -> ', arr)
   }
 
-  console.log('Total Iterations : ', count)
   return arr
 }
 
-// console.log(insertionSort(myArr), count)
 
 /* ----------        Perfomance F-N              -------------------------- */
 function getPerfomance(func, arr) {

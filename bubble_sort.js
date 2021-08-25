@@ -4,7 +4,7 @@
 // const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
 // const myArr = Array(1000).fill(21)
 const myArr = []
-for (let i = 60000; i >= 0; i--) {
+for (let i = 80000; i >= 0; i--) {
   myArr.push(Math.ceil(Math.random() * 60000))
 }
 

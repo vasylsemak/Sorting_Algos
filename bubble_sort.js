@@ -12,28 +12,24 @@ for (let i = 60000; i >= 0; i--) {
 
 /* ----------------------------------------------------------------- */
 const bubbleSort = anArr => {
-  let count = 0
   let last = anArr.length -1
 
   for(let j = 0; j < last; j++) {
     let first = 0
 
     while(first < last) {
-      count++
 
       if(anArr[first] > anArr[first +1]) {
         const tempElem = anArr[first +1]
         anArr[first +1] = anArr[first]
         anArr[first] = tempElem
       }
-
       first++;
     }
     // don't check last sorted elem after full iteration
     last--;
   }
 
-  console.log('Total Iterations : ', count)
   return anArr;
 }
 
@@ -41,21 +37,17 @@ const bubbleSort = anArr => {
 
 /* ----------------------------  Version 2 ------------------------------ */
 // const bubbleSort = arr => {
-//   let count = 0
+//   for(let i = 0; i < arr.length; i++) {
+//     for(let j = 1; j < arr.length -i; j++) {
 
-//   for(let i = 0; i < arr.length - 1; i++) {
-//     for(let j = 0; j < arr.length - 1 - i; j++) {
-//       count++
-
-//       if(arr[j] > arr[j + 1]) {
-//         const temp = arr[j + 1]
-//         arr[j + 1] = arr[j]
-//         arr[j] = temp
+//       if(arr[j-1] > arr[j]) {
+//         const temp = arr[j]
+//         arr[j] = arr[j-1]
+//         arr[j-1] = temp
 //       }
 //     }
 //   }
 
-//   console.log('Total Iterations : ', count)
 //   return arr
 // }
 

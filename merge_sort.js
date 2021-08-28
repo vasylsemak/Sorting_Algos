@@ -9,6 +9,7 @@ for (let i = 60000; i >= 0; i--) {
 /* ----------------------------------------------------------------- */
 
 
+
 // Split Array
 const splitArray = arr => {
   let i = Math.ceil(arr.length / 2)
@@ -21,17 +22,16 @@ const sortAndMerge = (arr1, arr2) => {
   const merged = []
 
   while(arr1.length && arr2.length) {
-    if(arr1[0] <= arr2[0]) merged.push(arr1.shift())
-    if(arr1[0] > arr2[0])  merged.push(arr2.shift())
+    arr1[0] < arr2[0]
+      ? merged.push(arr1.shift())
+      : merged.push(arr2.shift())
   }
-
   const restArr = arr1.length ? arr1 : arr2
+
   return [...merged, ...restArr]
 }
 
-
-
-/* --------    MERGE SORT ------------------------------ */
+// MERGE SORT
 function mergeSortAlgo(arr) {
   // if arr 1 element or [] - it is sorted!
   if(arr.length < 2) return arr

@@ -10,46 +10,46 @@ for (let i = 60000; i >= 0; i--) {
 
 
 
-/* ----------------------------------------------------------------- */
-const bubbleSort = anArr => {
-  let last = anArr.length -1
+/* ----------------------------  Version 1 ------------------------------ */
+const bubbleSort = arr => {
+  for(let i = 0; i < arr.length -1; i++) {
+    for(let j = 1; j < arr.length -i; j++) {
 
-  for(let j = 0; j < anArr.length -1; j++) {
-    let first = 0
-
-    while(first < last) {
-
-      if(anArr[first] > anArr[first +1]) {
-        const tempElem = anArr[first +1]
-        anArr[first +1] = anArr[first]
-        anArr[first] = tempElem
+      if(arr[j-1] > arr[j]) {
+        const temp = arr[j]
+        arr[j] = arr[j-1]
+        arr[j-1] = temp
       }
-      first++;
     }
-    // don't check last sorted elem after full iteration
-    last--;
   }
 
-  return anArr;
+  return arr
 }
 
 
-
 /* ----------------------------  Version 2 ------------------------------ */
-// const bubbleSort = arr => {
-//   for(let i = 0; i < arr.length -1; i++) {
-//     for(let j = 1; j < arr.length -i; j++) {
+// const bubbleSort = anArr => {
+//   let last = anArr.length -1
 
-//       if(arr[j-1] > arr[j]) {
-//         const temp = arr[j]
-//         arr[j] = arr[j-1]
-//         arr[j-1] = temp
+//   for(let j = 0; j < anArr.length -1; j++) {
+//     let first = 0
+
+//     while(first < last) {
+
+//       if(anArr[first] > anArr[first +1]) {
+//         const tempElem = anArr[first +1]
+//         anArr[first +1] = anArr[first]
+//         anArr[first] = tempElem
 //       }
+//       first++;
 //     }
+//     // don't check last sorted elem after full iteration
+//     last--;
 //   }
 
-//   return arr
+//   return anArr;
 // }
+
 
 
 

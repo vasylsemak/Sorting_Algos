@@ -43,7 +43,7 @@ function mergeSortAlgo(arr) {
     const recursiveLeft = mergeSortAlgo(left)
     const recursiveRight = mergeSortAlgo(right)
 
-    // merge combined halfves into sorted whole
+    // merge combined halves into sorted whole
     return sortAndMerge(recursiveLeft, recursiveRight)
   }
 }

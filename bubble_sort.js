@@ -4,7 +4,7 @@
 // const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
 // const myArr = Array(1000).fill(21)
 const myArr = []
-for (let i = 80000; i >= 0; i--) {
+for (let i = 60000; i >= 0; i--) {
   myArr.push(Math.ceil(Math.random() * 60000))
 }
 
@@ -14,7 +14,7 @@ for (let i = 80000; i >= 0; i--) {
 const bubbleSort = anArr => {
   let last = anArr.length -1
 
-  for(let j = 0; j < last; j++) {
+  for(let j = 0; j < anArr.length -1; j++) {
     let first = 0
 
     while(first < last) {
@@ -37,7 +37,7 @@ const bubbleSort = anArr => {
 
 /* ----------------------------  Version 2 ------------------------------ */
 // const bubbleSort = arr => {
-//   for(let i = 0; i < arr.length; i++) {
+//   for(let i = 0; i < arr.length -1; i++) {
 //     for(let j = 1; j < arr.length -i; j++) {
 
 //       if(arr[j-1] > arr[j]) {

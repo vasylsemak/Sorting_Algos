@@ -5,23 +5,51 @@ const myArr = []
 for (let i = 60000; i >= 0; i--) {
   myArr.push(Math.ceil(Math.random() * 60000))
 }
+let count = 0
 
 
+/* ----------        V1 - faster             -------------------------- */
 function insertionSort(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
-    let j = i + 1
+  for(let i = 1; i < arr.length; i++) {
 
-    while (j >= 1 && (arr[j -1] > arr[j])) {
-      let keyElem = arr[j]
+    if(arr[i-1] > arr[i]) {
+      let tempElem = arr[i]
+      let pvt = i-1
 
-      arr[j] = arr[j - 1]
-      arr[j - 1] = keyElem
-      j--
+      // Don't swap every greater Elem with TempElem, iterate untill get less
+      // elem and INSERT after it
+      while(pvt >=0 && arr[pvt] > tempElem) {
+        arr[pvt+1] = arr[pvt]
+        pvt--
+      }
+      arr[pvt+1] = tempElem
+      // count every insertion(swap)
+      count++
     }
   }
 
   return arr
 }
+
+
+/* ----------        V2 - simple             -------------------------- */
+// function insertionSort(arr) {
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     let j = i + 1
+
+//     while (j >= 1 && (arr[j - 1] > arr[j])) {
+//       let keyElem = arr[j]
+
+//       arr[j] = arr[j - 1]
+//       arr[j - 1] = keyElem
+//       j--
+//       // count every insertion(swap)
+//       count++
+//     }
+//   }
+
+//   return arr
+// }
 
 
 /* ----------        Perfomance F-N              -------------------------- */
@@ -37,6 +65,7 @@ function getPerfomance(func, arr) {
 // getPerfomance(insertionSort, myArr)
 console.log(
   'insertionSort sorted ---> ',
-  getPerfomance(insertionSort, myArr)
+  getPerfomance(insertionSort, myArr),
+  ';  count:  ', count
 )
 console.log('\n')

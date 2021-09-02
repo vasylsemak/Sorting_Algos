@@ -11,14 +11,13 @@ for (let i = 60000; i >= 0; i--) {
 
 
 /* ----------------------------  Version 1 ------------------------------ */
-const bubbleSort = arr => {
+function bubbleSort(arr) {
+
   for(let i = 0; i < arr.length -1; i++) {
     for(let j = 1; j < arr.length -i; j++) {
 
       if(arr[j-1] > arr[j]) {
-        const temp = arr[j]
-        arr[j] = arr[j-1]
-        arr[j-1] = temp
+        swap(arr, j-1)
       }
     }
   }
@@ -37,9 +36,7 @@ const bubbleSort = arr => {
 //     while(first < last) {
 
 //       if(anArr[first] > anArr[first +1]) {
-//         const tempElem = anArr[first +1]
-//         anArr[first +1] = anArr[first]
-//         anArr[first] = tempElem
+//         swap(anArr, first)
 //       }
 //       first++;
 //     }
@@ -50,6 +47,13 @@ const bubbleSort = arr => {
 //   return anArr;
 // }
 
+
+// f-n to swap elements
+function swap(arr, j) {
+  const temp = arr[j + 1]
+  arr[j + 1] = arr[j]
+  arr[j] = temp
+}
 
 
 
@@ -69,13 +73,3 @@ console.log(
   getPerfomance(bubbleSort, myArr)
 )
 console.log('\n')
-
-
-/* ------         F-N CALL              --------------------- */
-// console.log('                                                       ')
-// console.log('Initial Arr: ', myArr)
-// console.log('                                                       ')
-// const result = bubbleSort(myArr)
-// console.log('                                                       ')
-// console.log('SORTED: ', result)
-// console.log('                                                       ')

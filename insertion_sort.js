@@ -5,7 +5,6 @@ const myArr = []
 for (let i = 60000; i >= 0; i--) {
   myArr.push(Math.ceil(Math.random() * 60000))
 }
-let count = 0
 
 
 /* ----------        V1 - faster             -------------------------- */
@@ -22,9 +21,8 @@ function insertionSort(arr) {
         arr[pvt+1] = arr[pvt]
         pvt--
       }
+      // insert tempElem after less elem
       arr[pvt+1] = tempElem
-      // count every insertion(swap)
-      count++
     }
   }
 
@@ -65,7 +63,6 @@ function getPerfomance(func, arr) {
 // getPerfomance(insertionSort, myArr)
 console.log(
   'insertionSort sorted ---> ',
-  getPerfomance(insertionSort, myArr),
-  ';  count:  ', count
+  getPerfomance(insertionSort, myArr)
 )
 console.log('\n')

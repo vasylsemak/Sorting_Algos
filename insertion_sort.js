@@ -37,12 +37,9 @@ function insertionSort(arr) {
 
 //     while (j >= 1 && (arr[j - 1] > arr[j])) {
 //       let keyElem = arr[j]
-
 //       arr[j] = arr[j - 1]
 //       arr[j - 1] = keyElem
 //       j--
-//       // count every insertion(swap)
-//       count++
 //     }
 //   }
 

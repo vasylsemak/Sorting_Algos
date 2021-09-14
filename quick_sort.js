@@ -15,9 +15,6 @@ function partitionHoare(arr, start, end) {
 
   // while left pointer NOT greater than right
   while(start <= end) {
-    // console.log("Arr: ", arr)
-    // console.log("Pivot: ", pivot)
-    // console.log('\n')
 
     // if left side num less than Pivot - move left pointer
     while(arr[start] < arr[pivot]) {

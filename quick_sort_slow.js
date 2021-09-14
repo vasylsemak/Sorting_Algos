@@ -11,7 +11,7 @@ for (let i = 60000; i >= 0; i--) {
 /* ---------------    time O(nlogn) space O(n)     ------------------------ */
 function quickSort(arr) {
   // base case for recursion
-  if(arr.length <= 1) return arr
+  if(arr.length < 2) return arr
 
   // select first elem as pivot
   const [pivot, ...restArr] = arr

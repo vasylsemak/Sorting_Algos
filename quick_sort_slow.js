@@ -26,7 +26,7 @@ function quickSort(arr) {
   const rightSorted = quickSort(right)
 
   // return leftSortedArr + pivot + rightSortedArr
-  return leftSorted.concat(pivot).concat(rightSorted)
+  return [...leftSorted, pivot, ...rightSorted]
 }
 
 

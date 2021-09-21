@@ -1,57 +1,56 @@
-// const myArr = [90, 70, 50, 10, 30, 444]
-// const myArr = [9, 7, 5, 3]
-// const myArr = [20, 40, 60, 80, 100]
-
 const myArr = []
 for (let i = 60000; i >= 0; i--) {
   myArr.push(Math.ceil(Math.random() * 60000))
 }
 
 
+// /* ----------        quickSort Hoare V2 F-N         -------------------- */
+function quickSort(arr, left = 0, right = arr.length -1) {
+  if(left >= right) return
 
-/* ----------        partitionHoare F-N              -------------------------- */
-function partitionHoare(arr, start, end) {
-  let pivot = Math.floor((start + end) / 2)
+  const pivotIdx = partitionHoare(arr, left, right)
 
-  // while left pointer NOT greater than right
+  quickSort(arr, left, pivotIdx -1)
+  quickSort(arr, pivotIdx +1, right)
+
+  return arr
+}
+
+
+/* ----------        partitionHoare F-N              ------------------------ */
+function partitionHoare(arr, left, right) {
+  let pivot = arr[left]
+  let start = left +1, end = right
+
   while(start <= end) {
 
     // if left side num less than Pivot - move left pointer
-    while(arr[start] < arr[pivot]) {
-      start++
-    }
+    while(arr[start] < pivot) start++
     // if right side num greater than Pivot - move right pointer
-    while(arr[end] > arr[pivot]) {
-      end--
-    }
+    while(arr[end] > pivot) end--
 
     // if poiunters go beyond each ohter - all nums are sorted
     // else swap greater on the left and less on the right
     if(start <= end) {
-      let temp = arr[end]
-      arr[end] = arr[start]
-      arr[start] = temp
-
+      swap(arr, start, end)
       // move pointers
       start++
       end--
     }
   }
+  // swap pivot and last least num
+  swap(arr, left, end)
 
-  // return pivot
-  return start
+  // return pivot index
+  return end
 }
 
 
-
-// /* ----------        quickSortV2 F-N              -------------------------- */
-function quickSort(arr, left = 0, right = arr.length -1) {
-  const pivotIdx = partitionHoare(arr, left, right)
-
-  if(left < pivotIdx -1)  quickSort(arr, left, pivotIdx -1)
-  if(right > pivotIdx)  quickSort(arr, pivotIdx, right)
-
-  return arr
+/* ----------------        swap F-N              -------------------------- */
+function swap(arr, left, right) {
+  let temp = arr[right]
+  arr[right] = arr[left]
+  arr[left] = temp
 }
 
 

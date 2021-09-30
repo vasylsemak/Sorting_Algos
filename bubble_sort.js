@@ -2,53 +2,36 @@
 // const myArr = [3, 1, 5, 7, 9]
 // const myArr = [99, 11, 77, 55, 22, 44]
 // const myArr = [99, 95, 88, 84, 77, 74, 66, 55, 31, 22, 21, 19, 1000]
-// const myArr = Array(1000).fill(21)
+// const myArr = Array(60000).fill(21)
 const myArr = []
 for (let i = 60000; i >= 0; i--) {
   myArr.push(Math.ceil(Math.random() * 60000))
 }
 
 
-
-/* ----------------------------  Version 1 ------------------------------ */
 function bubbleSort(arr) {
+  let flag = 0
 
   for(let i = 0; i < arr.length -1; i++) {
+
     for(let j = 1; j < arr.length -i; j++) {
 
       if(arr[j-1] > arr[j]) {
         swap(arr, j-1)
+        flag++
       }
     }
+
+    /* place FLAG to check if array is sorted after n-th iteratio ---
+      DON'T iterate n+1 times. Speeds up partially sorted array, but slows down
+      avarage case */
+    if(!flag) break
   }
 
   return arr
 }
 
 
-/* ----------------------------  Version 2 ------------------------------ */
-// const bubbleSort = anArr => {
-//   let last = anArr.length -1
-
-//   for(let j = 0; j < anArr.length -1; j++) {
-//     let first = 0
-
-//     while(first < last) {
-
-//       if(anArr[first] > anArr[first +1]) {
-//         swap(anArr, first)
-//       }
-//       first++;
-//     }
-//     // don't check last sorted elem after full iteration
-//     last--;
-//   }
-
-//   return anArr;
-// }
-
-
-// f-n to swap elements
 function swap(arr, j) {
   const temp = arr[j + 1]
   arr[j + 1] = arr[j]

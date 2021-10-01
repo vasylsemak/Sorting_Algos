@@ -9,20 +9,22 @@ for (let i = 60000; i >= 0; i--) {
 
 /* ----------        V1 - faster             -------------------------- */
 function insertionSort(arr) {
+  if(arr.length < 2) return arr
+
   for(let i = 1; i < arr.length; i++) {
 
     if(arr[i-1] > arr[i]) {
       let tempElem = arr[i]
-      let pvt = i-1
+      let holeIdx = i
 
-      // Don't swap every greater Elem with TempElem, iterate untill get less
-      // elem and INSERT after it
-      while(pvt >=0 && arr[pvt] > tempElem) {
-        arr[pvt+1] = arr[pvt]
-        pvt--
+      // Iterate until found less elem and INSERT after it
+      while(holeIdx > 0 && tempElem < arr[holeIdx - 1]) {
+        // push every greater elem into the hole
+        arr[holeIdx] = arr[holeIdx - 1]
+        holeIdx--
       }
-      // insert tempElem after less elem
-      arr[pvt+1] = tempElem
+      // insert tempElem between less and greater elements
+      arr[holeIdx] = tempElem
     }
   }
 

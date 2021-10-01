@@ -32,23 +32,6 @@ function insertionSort(arr) {
 }
 
 
-/* ----------        V2 - simple             -------------------------- */
-// function insertionSort(arr) {
-//   for (let i = 0; i < arr.length - 1; i++) {
-//     let j = i + 1
-
-//     while (j >= 1 && (arr[j - 1] > arr[j])) {
-//       let keyElem = arr[j]
-//       arr[j] = arr[j - 1]
-//       arr[j - 1] = keyElem
-//       j--
-//     }
-//   }
-
-//   return arr
-// }
-
-
 /* ----------        Perfomance F-N              -------------------------- */
 function getPerfomance(func, arr) {
   const start = Date.now()

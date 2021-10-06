@@ -36,16 +36,14 @@ function mergeSortAlgo(arr) {
   // if arr 1 element or [] - it is sorted!
   if(arr.length < 2) return arr
 
-  else {
-    // split array in 2 halves
-    const [left, right] = splitArray(arr)
-    // continiue spliting recursively untill 1 elem array
-    const recursiveLeft = mergeSortAlgo(left)
-    const recursiveRight = mergeSortAlgo(right)
+  // split array in 2 halves
+  const [left, right] = splitArray(arr)
+  // continiue spliting recursively untill 1 elem array
+  const recursiveLeft = mergeSortAlgo(left)
+  const recursiveRight = mergeSortAlgo(right)
 
-    // merge combined halves into sorted whole
-    return sortAndMerge(recursiveLeft, recursiveRight)
-  }
+  // merge combined halves into sorted whole
+  return sortAndMerge(recursiveLeft, recursiveRight)
 }
 
 

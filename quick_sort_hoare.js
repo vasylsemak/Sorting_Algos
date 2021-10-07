@@ -65,7 +65,8 @@ function getPerfomance(func, arr) {
   return result
 }
 
-// getPerfomance(quickSortV2, myArr)
+
+/* ----------        Function call              -------------------------- */
 console.log(
   'quickSort sorted ---> ',
   getPerfomance(quickSort, myArr)

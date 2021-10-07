@@ -50,7 +50,8 @@ function getPerfomance(func, arr) {
   return result
 }
 
-// getPerfomance(bubbleSort, myArr)
+
+/* ----------        Function call              -------------------------- */
 console.log(
   'bubbleSort sorted ---> ',
   getPerfomance(bubbleSort, myArr)

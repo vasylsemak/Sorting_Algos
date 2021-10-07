@@ -11,8 +11,8 @@ for (let i = 60000; i >= 0; i--) {
   - find the least elem index and move at the pointer index
   - move pointer further
 */
-function selectionSort(arr) {
 
+function selectionSort(arr) {
   for(let i = 0; i < arr.length - 1; i++) {
     let leastIdx = i
     let flag = 0
@@ -28,7 +28,6 @@ function selectionSort(arr) {
     if(!flag) break
     swap(arr, i, leastIdx)
   }
-
   return arr
 }
 
@@ -38,8 +37,6 @@ function swap(arr, a, b) {
   arr[b] = arr[a]
   arr[a] = temp
 }
-
-
 
 
 /* ----------        Perfomance F-N              -------------------------- */
@@ -52,7 +49,8 @@ function getPerfomance(func, arr) {
   return result
 }
 
-// getPerfomance(quickSortV2, myArr)
+
+/* ----------        Function call              -------------------------- */
 console.log(
   'selectionSort sorted ---> ',
   getPerfomance(selectionSort, nums)

@@ -58,7 +58,8 @@ function getPerfomance(func, arr) {
   return result
 }
 
-// getPerfomance(mergeSortAlgo, myArr)
+
+/* ----------        Function call              -------------------------- */
 console.log(
   'mergeSort sorted ---> ',
   getPerfomance(mergeSortAlgo, myArr)

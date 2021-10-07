@@ -42,7 +42,8 @@ function getPerfomance(func, arr) {
   return result
 }
 
-// getPerfomance(insertionSort, myArr)
+
+/* ----------        Function call              -------------------------- */
 console.log(
   'insertionSort sorted ---> ',
   getPerfomance(insertionSort, myArr)

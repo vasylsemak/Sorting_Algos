@@ -8,10 +8,13 @@ for (let i = 60000; i >= 0; i--) {
 
 
 function quickSort(arr, first = 0, last = arr.length -1) {
+  // base case for recursion
   if(first >= last) return
 
+  // get index of sorted elem
   let pivotIdx = partition(arr, first, last)
 
+  // recursively sort left and right sublists
   quickSort(arr, first, pivotIdx -1)
   quickSort(arr, pivotIdx +1, last)
 

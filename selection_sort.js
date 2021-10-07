@@ -15,13 +15,17 @@ function selectionSort(arr) {
 
   for(let i = 0; i < arr.length - 1; i++) {
     let leastIdx = i
+    let flag = 0
 
     for(let j = i + 1; j < arr.length; j++) {
 
       if(arr[j] < arr[leastIdx]) {
         leastIdx = j
+        flag++
       }
     }
+
+    if(!flag) break
     swap(arr, i, leastIdx)
   }
 

@@ -21,20 +21,21 @@ function quickSort(arr, first = 0, last = arr.length -1) {
 
 function partition(arr, first, last) {
   let pivot = arr[last]
-  let j = first -1
+  let j = first
 
   for(let i = first; i < last; i++) {
     // if current elem is less than pivot, swap
     if(arr[i] < pivot) {
-      j++
       swap(arr, j, i)
+      j++
     }
   }
   // insert pivot after less elem
-  swap(arr, j+1, last)
+  swap(arr, j, last)
   // return pivot Idx
-  return j+1
+  return j
 }
+
 
 function swap(arr, idx1, idx2) {
   const temp = arr[idx2]
